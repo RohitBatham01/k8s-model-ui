@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  streamlit-ui:
+    build: .
+    container_name: k8s-model-ui
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./pod_log.txt:/app/pod_log.txt
+      - /root/.kube/config:/root/.kube/config:ro
+
